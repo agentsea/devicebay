@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import TypeVar
 
-from toolfuse import Tool
+from toolfuse import Tool, action, observation, Action, Observation
 
 D = TypeVar("D", bound="Device")
 
