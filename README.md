@@ -1,2 +1,3 @@
-# devices
-AI agent devices
+# DeviceBay
+
+Devices for AI agents
