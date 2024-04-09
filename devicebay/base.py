@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Optional, TypeVar, Type
+from typing import Optional, TypeVar, Type, Generic
 
 from pydantic import BaseModel
 from toolfuse import Tool, action, observation, Action, Observation
@@ -16,7 +16,7 @@ class ReactComponent:
     token: Optional[str] = None
 
 
-class Device(Tool, ABC):
+class Device(Generic[C, D], Tool, ABC):
     """An agent device"""
 
     @classmethod
@@ -30,12 +30,12 @@ class Device(Tool, ABC):
 
     @classmethod
     @abstractmethod
-    def from_env(cls, config: BaseModel) -> D:
+    def from_env(cls, config: C) -> D:
         pass
 
     @classmethod
     @abstractmethod
-    def ensure(cls) -> D:
+    def ensure(cls, config: C) -> D:
         pass
 
     @classmethod
@@ -49,7 +49,7 @@ class Device(Tool, ABC):
 
     @classmethod
     @abstractmethod
-    def config(cls) -> Type[BaseModel]:
+    def config(cls) -> Type[C]:
         pass
 
     @classmethod
