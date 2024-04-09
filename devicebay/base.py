@@ -22,21 +22,17 @@ class Device(Generic[C, D, P], Tool, ABC):
 
     @classmethod
     @abstractmethod
-    def envs(cls) -> dict:
-        pass
-
-    @abstractmethod
-    def to_env(self) -> dict:
-        pass
-
-    @classmethod
-    @abstractmethod
-    def from_env(cls, config: C) -> D:
+    def from_config(cls, config: C) -> D:
         pass
 
     @classmethod
     @abstractmethod
     def ensure(cls, name: str, config: P) -> D:
+        pass
+
+    @classmethod
+    @abstractmethod
+    def create(cls, name: str, config: P) -> D:
         pass
 
     @classmethod
