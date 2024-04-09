@@ -6,6 +6,7 @@ from toolfuse import Tool, action, observation, Action, Observation
 
 D = TypeVar("D", bound="Device")
 C = TypeVar("C", bound="BaseModel")
+P = TypeVar("P", bound="BaseModel")
 
 
 class ReactComponent:
@@ -16,7 +17,7 @@ class ReactComponent:
     token: Optional[str] = None
 
 
-class Device(Generic[C, D], Tool, ABC):
+class Device(Generic[C, D, P], Tool, ABC):
     """An agent device"""
 
     @classmethod
@@ -35,7 +36,7 @@ class Device(Generic[C, D], Tool, ABC):
 
     @classmethod
     @abstractmethod
-    def ensure(cls, config: C) -> D:
+    def ensure(cls, name: str, config: P) -> D:
         pass
 
     @classmethod
@@ -50,6 +51,11 @@ class Device(Generic[C, D], Tool, ABC):
     @classmethod
     @abstractmethod
     def config(cls) -> Type[C]:
+        pass
+
+    @classmethod
+    @abstractmethod
+    def provision_config(cls) -> Type[P]:
         pass
 
     @classmethod
