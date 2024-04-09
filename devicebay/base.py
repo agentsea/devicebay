@@ -46,12 +46,12 @@ class Device(Generic[C, D, P], Tool, ABC):
 
     @classmethod
     @abstractmethod
-    def config(cls) -> Type[C]:
+    def config_type(cls) -> Type[C]:
         pass
 
     @classmethod
     @abstractmethod
-    def provision_config(cls) -> Type[P]:
+    def provision_config_type(cls) -> Type[P]:
         pass
 
     @classmethod
