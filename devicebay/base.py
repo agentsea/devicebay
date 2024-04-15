@@ -117,7 +117,16 @@ class Device(Generic[C, D, P], Tool, ABC):
         Returns:
             DeviceModel: Device schema
         """
-        return DeviceModel(name=self.name(), config=self.connect_config())
+        config_type = self.connect_config_type()
+        config_instance = self.connect_config()
+        if not isinstance(config_instance, config_type):
+            raise TypeError(
+                f"Expected config instance of type {config_type.__name__}, but got {type(config_instance).__name__}"
+            )
+        parametrized_device_model = DeviceModel[config_type](
+            name=self.name(), config=config_instance
+        )
+        return parametrized_device_model
 
     @classmethod
     def serve(cls) -> None:

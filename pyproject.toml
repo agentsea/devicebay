@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "devicebay"
-version = "0.1.10"
+version = "0.1.11"
 description = "Devices for AI agents"
 authors = ["Patrick Barker <patrickbarkerco@gmail.com>"]
 license = "Apache 2.0"
