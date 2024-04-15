@@ -1,10 +1,13 @@
-from typing import Optional, Dict, List
+from typing import Optional, Dict, List, TypeVar, Generic
 from pydantic import BaseModel
 
+# Define a type variable that can be any subclass of BaseModel
+ConfigType = TypeVar("ConfigType")
 
-class DeviceModel(BaseModel):
+
+class DeviceModel(BaseModel, Generic[ConfigType]):
     name: str
-    config: BaseModel
+    config: ConfigType
 
 
 class EnvVarOptModel(BaseModel):
