@@ -3,9 +3,9 @@ import time
 from typing import Optional, TypeVar, Type, Generic
 
 from pydantic import BaseModel
-from toolfuse import Tool, action, observation, Action, Observation
+from toolfuse import Tool
 
-from .models import V1Device, V1Lock
+from .models import V1Device, V1Lock, V1DeviceType
 
 D = TypeVar("D", bound="Device")
 C = TypeVar("C", bound="BaseModel")
@@ -147,11 +147,11 @@ class Device(Generic[C, D, P], Tool, ABC):
             locked=True,
         )
 
-    def to_schema(self) -> V1Device:
-        """Convert the device to server transport schema
+    def to_v1(self) -> V1Device:
+        """Convert the device to v1 server transport
 
         Returns:
-            DeviceModel: Device schema
+            V1Device: A v1 device
         """
         config_type = self.connect_config_type()
         config_instance = self.connect_config()

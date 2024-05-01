@@ -2,7 +2,8 @@ from typing import Optional, Dict, List, TypeVar, Generic
 from pydantic import BaseModel
 
 # Define a type variable that can be any subclass of BaseModel
-ConfigType = TypeVar("ConfigType")
+ConnectConfigType = TypeVar("ConnectConfigType")
+ProvisionConfigType = TypeVar("ProvisionConfigType")
 
 
 class V1Lock(BaseModel):
@@ -13,9 +14,14 @@ class V1Lock(BaseModel):
     reason: Optional[str] = None
 
 
-class V1Device(BaseModel, Generic[ConfigType]):
+class V1Device(BaseModel, Generic[ConnectConfigType]):
     name: str
-    config: ConfigType
+    config: ConnectConfigType
+
+
+class V1DeviceType(BaseModel, Generic[ProvisionConfigType]):
+    name: str
+    config: ProvisionConfigType
 
 
 class V1EnvVarOpt(BaseModel):
@@ -31,7 +37,7 @@ class V1LLMProviders(BaseModel):
     preference: List[str] = []
 
 
-class V1DeviceType(BaseModel):
+class V1DeviceTypeFile(BaseModel):
     id: Optional[str] = None
     name: str
     owner_id: Optional[str] = None
@@ -52,5 +58,5 @@ class V1DeviceType(BaseModel):
     llm_providers: Optional[V1LLMProviders] = None
 
 
-class V1DeviceTypes(BaseModel):
-    types: List[V1DeviceType]
+class V1DeviceTypeFiles(BaseModel):
+    types: List[V1DeviceTypeFile]

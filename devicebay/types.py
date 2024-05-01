@@ -10,7 +10,7 @@ from .db.conn import WithDB
 from .models import (
     V1EnvVarOpt,
     V1LLMProviders,
-    V1DeviceType,
+    V1DeviceTypeFile,
     V1LLMProviders,
 )
 
@@ -56,8 +56,8 @@ class DeviceType(WithDB):
         self.llm_providers: Optional[V1LLMProviders] = llm_providers
         self.save()
 
-    def to_schema(self) -> V1DeviceType:
-        return V1DeviceType(
+    def to_schema(self) -> V1DeviceTypeFile:
+        return V1DeviceTypeFile(
             id=self.id,
             name=self.name,
             description=self.description,
@@ -79,7 +79,7 @@ class DeviceType(WithDB):
         )
 
     @classmethod
-    def from_schema(cls, schema: V1DeviceType) -> "DeviceType":
+    def from_schema(cls, schema: V1DeviceTypeFile) -> "DeviceType":
         obj = cls.__new__(cls)
         obj.id = schema.id
         obj.name = schema.name
@@ -208,7 +208,7 @@ class DeviceType(WithDB):
                     session.delete(record)
                     session.commit()
 
-    def update(self, model: V1DeviceType) -> None:
+    def update(self, model: V1DeviceTypeFile) -> None:
         """
         Updates the current DeviceType instance with values from an DeviceTypeModel instance.
         """

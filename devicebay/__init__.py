@@ -1,1 +1,2 @@
-from .base import Device, Tool, action, observation, Action, Observation, ReactComponent
+from .base import Device, ReactComponent
+from toolfuse import Tool, action, observation, Action, Observation
