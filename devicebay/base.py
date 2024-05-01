@@ -1,10 +1,11 @@
 from abc import ABC, abstractmethod
+import time
 from typing import Optional, TypeVar, Type, Generic
 
 from pydantic import BaseModel
 from toolfuse import Tool, action, observation, Action, Observation
 
-from .models import DeviceModel
+from .models import V1Device, V1Lock
 
 D = TypeVar("D", bound="Device")
 C = TypeVar("C", bound="BaseModel")
@@ -33,6 +34,11 @@ class Device(Generic[C, D, P], Tool, ABC):
         Returns:
             D: The device
         """
+        pass
+
+    @abstractmethod
+    def disconnect(self) -> None:
+        """Disconnect from the device"""
         pass
 
     @classmethod
@@ -111,7 +117,37 @@ class Device(Generic[C, D, P], Tool, ABC):
         """
         pass
 
-    def to_schema(self) -> DeviceModel:
+    def get_lock(self) -> Optional[V1Lock]:
+        """Get the lock for the device"""
+        if not hasattr(self, "_lock"):
+            return None
+        return self._lock
+
+    def is_locked(self) -> bool:
+        """Check if the device is locked"""
+        if not hasattr(self, "_lock"):
+            return False
+        if self._lock is None:
+            return False
+        return self._lock.locked
+
+    def unlock(self) -> None:
+        """Unlock the device"""
+        self._lock = None
+
+    def lock(self, owner_id: str, expires_in: int = 600) -> None:
+        """Lock the device"""
+        if hasattr(self, "_lock"):
+            if self._lock and self._lock.locked:
+                raise RuntimeError("Device is already locked")
+        self._lock = V1Lock(
+            owner_id=owner_id,
+            created=time.time(),
+            expires=time.time() + expires_in,
+            locked=True,
+        )
+
+    def to_schema(self) -> V1Device:
         """Convert the device to server transport schema
 
         Returns:
@@ -123,7 +159,7 @@ class Device(Generic[C, D, P], Tool, ABC):
             raise TypeError(
                 f"Expected config instance of type {config_type.__name__}, but got {type(config_instance).__name__}"
             )
-        parametrized_device_model = DeviceModel[config_type](
+        parametrized_device_model = V1Device[config_type](
             name=self.name(), config=config_instance
         )
         return parametrized_device_model

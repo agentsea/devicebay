@@ -5,12 +5,20 @@ from pydantic import BaseModel
 ConfigType = TypeVar("ConfigType")
 
 
-class DeviceModel(BaseModel, Generic[ConfigType]):
+class V1Lock(BaseModel):
+    owner_id: str
+    created: float
+    expires: float
+    locked: bool
+    reason: Optional[str] = None
+
+
+class V1Device(BaseModel, Generic[ConfigType]):
     name: str
     config: ConfigType
 
 
-class EnvVarOptModel(BaseModel):
+class V1EnvVarOpt(BaseModel):
     name: str
     description: Optional[str] = None
     required: bool = False
@@ -19,18 +27,18 @@ class EnvVarOptModel(BaseModel):
     options: List[str] = []
 
 
-class LLMProviders(BaseModel):
+class V1LLMProviders(BaseModel):
     preference: List[str] = []
 
 
-class DeviceTypeModel(BaseModel):
+class V1DeviceType(BaseModel):
     id: Optional[str] = None
     name: str
     owner_id: Optional[str] = None
     description: str
     image: Optional[str] = None
     versions: Optional[Dict[str, str]] = None
-    env_opts: List[EnvVarOptModel] = []
+    env_opts: List[V1EnvVarOpt] = []
     supported_runtimes: List[str] = []
     created: Optional[float] = None
     updated: Optional[float] = None
@@ -41,8 +49,8 @@ class DeviceTypeModel(BaseModel):
     cpu_request: Optional[str] = "1"
     cpu_limit: Optional[str] = "4"
     gpu_mem: Optional[str] = None
-    llm_providers: Optional[LLMProviders] = None
+    llm_providers: Optional[V1LLMProviders] = None
 
 
-class DeviceTypesModel(BaseModel):
-    types: List[DeviceTypeModel]
+class V1DeviceTypes(BaseModel):
+    types: List[V1DeviceType]

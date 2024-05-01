@@ -8,10 +8,10 @@ from sqlalchemy import or_
 from .db.models import DeviceTypeRecord
 from .db.conn import WithDB
 from .models import (
-    EnvVarOptModel,
-    LLMProviders,
-    DeviceTypeModel,
-    LLMProviders,
+    V1EnvVarOpt,
+    V1LLMProviders,
+    V1DeviceType,
+    V1LLMProviders,
 )
 
 
@@ -26,7 +26,7 @@ class DeviceType(WithDB):
         versions: Dict[str, str],
         supported_runtimes: List[str],
         owner_id: Optional[str] = None,
-        env_opts: List[EnvVarOptModel] = [],
+        env_opts: List[V1EnvVarOpt] = [],
         public: bool = False,
         icon: Optional[str] = None,
         mem_request: Optional[str] = "500m",
@@ -34,7 +34,7 @@ class DeviceType(WithDB):
         cpu_request: Optional[str] = "1",
         cpu_limit: Optional[str] = "4",
         gpu_mem: Optional[str] = None,
-        llm_providers: Optional[LLMProviders] = None,
+        llm_providers: Optional[V1LLMProviders] = None,
     ):
         self.id = str(uuid.uuid4())
         self.name = name
@@ -53,11 +53,11 @@ class DeviceType(WithDB):
         self.gpu_mem = gpu_mem
         self.created = time.time()
         self.updated = time.time()
-        self.llm_providers: Optional[LLMProviders] = llm_providers
+        self.llm_providers: Optional[V1LLMProviders] = llm_providers
         self.save()
 
-    def to_schema(self) -> DeviceTypeModel:
-        return DeviceTypeModel(
+    def to_schema(self) -> V1DeviceType:
+        return V1DeviceType(
             id=self.id,
             name=self.name,
             description=self.description,
@@ -79,7 +79,7 @@ class DeviceType(WithDB):
         )
 
     @classmethod
-    def from_schema(cls, schema: DeviceTypeModel) -> "DeviceType":
+    def from_schema(cls, schema: V1DeviceType) -> "DeviceType":
         obj = cls.__new__(cls)
         obj.id = schema.id
         obj.name = schema.name
@@ -136,7 +136,7 @@ class DeviceType(WithDB):
 
         llm_providers = None
         if len(str(record.llm_providers)) != 0:
-            llm_providers = LLMProviders(**json.loads(str(record.llm_providers)))
+            llm_providers = V1LLMProviders(**json.loads(str(record.llm_providers)))
 
         obj = cls.__new__(cls)
         obj.id = record.id
@@ -144,9 +144,7 @@ class DeviceType(WithDB):
         obj.description = record.description
         obj.image = record.image
         obj.versions = versions
-        obj.env_opts = [
-            EnvVarOptModel(**opt) for opt in json.loads(str(record.env_opts))
-        ]
+        obj.env_opts = [V1EnvVarOpt(**opt) for opt in json.loads(str(record.env_opts))]
         obj.supported_runtimes = json.loads(str(record.supported_runtimes))
         obj.created = record.created
         obj.updated = record.updated
@@ -210,7 +208,7 @@ class DeviceType(WithDB):
                     session.delete(record)
                     session.commit()
 
-    def update(self, model: DeviceTypeModel) -> None:
+    def update(self, model: V1DeviceType) -> None:
         """
         Updates the current DeviceType instance with values from an DeviceTypeModel instance.
         """
