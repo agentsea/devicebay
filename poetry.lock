@@ -231,13 +231,13 @@ files = [
 
 [[package]]
 name = "openai"
-version = "1.25.0"
+version = "1.25.1"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.7.1"
 files = [
-    {file = "openai-1.25.0-py3-none-any.whl", hash = "sha256:d0cfdf6afb31a5dabf3b95966cb31f3c757a0edaf3228715409cb404b9933de0"},
-    {file = "openai-1.25.0.tar.gz", hash = "sha256:22c35b26b8281cd2759b1a4c05ac99e2f2b26a9df71f90a0b4ddb75aa27adc81"},
+    {file = "openai-1.25.1-py3-none-any.whl", hash = "sha256:aa2f381f476f5fa4df8728a34a3e454c321caa064b7b68ab6e9daa1ed082dbf9"},
+    {file = "openai-1.25.1.tar.gz", hash = "sha256:f561ce86f4b4008eb6c78622d641e4b7e1ab8a8cdb15d2f0b2a49942d40d21a8"},
 ]
 
 [package.dependencies]
@@ -491,13 +491,13 @@ typing-extensions = ">=4.6.3,<5.0.0"
 
 [[package]]
 name = "toolfuse"
-version = "0.1.19"
+version = "0.1.20"
 description = "Tools for AI agents"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "toolfuse-0.1.19-py3-none-any.whl", hash = "sha256:cd5f19720b709c5e2ccd141c7596714dce2a1b99d271bea7f844f6479e827ab2"},
-    {file = "toolfuse-0.1.19.tar.gz", hash = "sha256:0a2c19c418cfd3f1359174f9b092bd8a9f6b4a933605603eb890c5f3431cb0b7"},
+    {file = "toolfuse-0.1.20-py3-none-any.whl", hash = "sha256:6300b94a5833fa18b8ce8b9e30d099ce855532d00271991aa26f77e5dc57e24b"},
+    {file = "toolfuse-0.1.20.tar.gz", hash = "sha256:15223ad14cab059aae4b87da406aa86d5bd3bb58e69ede9adb00e6a3b6cea695"},
 ]
 
 [package.dependencies]
@@ -509,13 +509,13 @@ urllib3 = ">=1.26.0,<2.0.0"
 
 [[package]]
 name = "tqdm"
-version = "4.66.2"
+version = "4.66.4"
 description = "Fast, Extensible Progress Meter"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "tqdm-4.66.2-py3-none-any.whl", hash = "sha256:1ee4f8a893eb9bef51c6e35730cebf234d5d0b6bd112b0271e10ed7c24a02bd9"},
-    {file = "tqdm-4.66.2.tar.gz", hash = "sha256:6cd52cdf0fef0e0f543299cfc96fec90d7b8a7e88745f411ec33eb44d5ed3531"},
+    {file = "tqdm-4.66.4-py3-none-any.whl", hash = "sha256:b75ca56b413b030bc3f00af51fd2c1a1a5eac6a0c1cca83cbb37a5c52abce644"},
+    {file = "tqdm-4.66.4.tar.gz", hash = "sha256:e4d936c9de8727928f3be6079590e97d9abfe8d39a590be678eb5919ffc186bb"},
 ]
 
 [package.dependencies]
@@ -557,4 +557,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "9b8312520a1604e383cbd100a7895c51ad166376f6c5161947e1978056f0c5c1"
+content-hash = "4303888fa548cdeeb0ba0daf03180abb6b27d47b45902f80aceca7c52c552d10"
