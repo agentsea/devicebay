@@ -491,13 +491,13 @@ typing-extensions = ">=4.6.3,<5.0.0"
 
 [[package]]
 name = "toolfuse"
-version = "0.1.21"
+version = "0.1.22"
 description = "Tools for AI agents"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "toolfuse-0.1.21-py3-none-any.whl", hash = "sha256:eaba12f6114c6b2248d965b872ecdcf94824c562f39875311c24adec67f1cc3c"},
-    {file = "toolfuse-0.1.21.tar.gz", hash = "sha256:0e3f0b6b142b14a79c42c9b3d1f1a620025ed23645c3357c5f4111e2c7326791"},
+    {file = "toolfuse-0.1.22-py3-none-any.whl", hash = "sha256:d481148f311ee7088fd1f4134dbda87f3770d328617f419e6534687cfa159e9d"},
+    {file = "toolfuse-0.1.22.tar.gz", hash = "sha256:47a6cb3f777b9bd4ee3957477a82a11c76ca08956a747973ed532658b4bb6d83"},
 ]
 
 [package.dependencies]
@@ -557,4 +557,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "28a09df72dc5d2292eed6a251e8505e41210524a89da32416fd43b73326653f9"
+content-hash = "fe7a6a6b4c3d16c18f9dd8a7430efb5a39d2b5928b0d364ac3792c0182af30d4"
