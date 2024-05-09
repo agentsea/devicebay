@@ -4,10 +4,6 @@ from pydantic import BaseModel
 
 from devicebay import Device, action, observation, ReactComponent
 
-D = TypeVar("D", bound="Device")
-C = TypeVar("C", bound="BaseModel")
-P = TypeVar("P", bound="BaseModel")
-
 
 class FSConnectConfig(BaseModel):
     """Connect configuration for a filesystem"""
