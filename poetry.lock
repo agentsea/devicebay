@@ -231,13 +231,13 @@ files = [
 
 [[package]]
 name = "openai"
-version = "1.25.1"
+version = "1.27.0"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.7.1"
 files = [
-    {file = "openai-1.25.1-py3-none-any.whl", hash = "sha256:aa2f381f476f5fa4df8728a34a3e454c321caa064b7b68ab6e9daa1ed082dbf9"},
-    {file = "openai-1.25.1.tar.gz", hash = "sha256:f561ce86f4b4008eb6c78622d641e4b7e1ab8a8cdb15d2f0b2a49942d40d21a8"},
+    {file = "openai-1.27.0-py3-none-any.whl", hash = "sha256:1183346fae6e63cb3a9134e397c0067690dc9d94ceb36eb0eb2c1bb9a1542aca"},
+    {file = "openai-1.27.0.tar.gz", hash = "sha256:498adc80ba81a95324afdfd11a71fa43a37e1d94a5ca5f4542e52fe9568d995b"},
 ]
 
 [package.dependencies]
@@ -491,13 +491,13 @@ typing-extensions = ">=4.6.3,<5.0.0"
 
 [[package]]
 name = "toolfuse"
-version = "0.1.22"
+version = "0.1.23"
 description = "Tools for AI agents"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "toolfuse-0.1.22-py3-none-any.whl", hash = "sha256:d481148f311ee7088fd1f4134dbda87f3770d328617f419e6534687cfa159e9d"},
-    {file = "toolfuse-0.1.22.tar.gz", hash = "sha256:47a6cb3f777b9bd4ee3957477a82a11c76ca08956a747973ed532658b4bb6d83"},
+    {file = "toolfuse-0.1.23-py3-none-any.whl", hash = "sha256:31d80cb09582204040c0b7dd2a416894984fbf03199a4340e191ccc120d0de30"},
+    {file = "toolfuse-0.1.23.tar.gz", hash = "sha256:ee8a5333ac35bb0400a849adf111533bfa98c6b203a11f0ccf3f565f72fbdda2"},
 ]
 
 [package.dependencies]
@@ -557,4 +557,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "fe7a6a6b4c3d16c18f9dd8a7430efb5a39d2b5928b0d364ac3792c0182af30d4"
+content-hash = "18e1c9a1d588ab51b64c03a55b3e2e4e8458cbef0af2fa5b3f139e86964a7774"

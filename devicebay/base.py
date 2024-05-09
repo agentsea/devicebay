@@ -71,11 +71,11 @@ class Device(Generic[C, D, P], Tool, ABC):
 
     @classmethod
     @abstractmethod
-    def react_component(cls) -> ReactComponent:
+    def react_component(cls) -> Optional[ReactComponent]:
         """React component for the device
 
         Returns:
-            ReactComponent: React component
+            Optional[ReactComponent]: React component
         """
         pass
 

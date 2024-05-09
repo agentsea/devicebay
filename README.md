@@ -32,6 +32,7 @@ pip install devicebay
 ## Supported Devices
 
 - Desktops via [AgentDesk](https://github.com/agentsea/agentdesk)
+- Filesystems via [FileSystem](./devicebay/devices/filesystem.py)
 
 ## Backends
 
