@@ -33,6 +33,7 @@ pip install devicebay
 
 - Desktops via [AgentDesk](https://github.com/agentsea/agentdesk)
 - Filesystems via [FileSystem](./devicebay/devices/filesystem.py)
+- Browsers via [Playwright](./devicebay/devices/browser.py)
 
 ## Backends
 
@@ -45,7 +46,7 @@ Sqlite will be used by default. To use postgres simply configure the env vars:
 
 ```sh
 DB_TYPE=postgres
-DB_NAME=mllm
+DB_NAME=devices
 DB_HOST=localhost
 DB_USER=postgres
 DB_PASS=abc123

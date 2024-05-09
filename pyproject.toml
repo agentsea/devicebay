@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "devicebay"
-version = "0.1.20"
+version = "0.1.21"
 description = "Devices for AI agents"
 authors = ["Patrick Barker <patrickbarkerco@gmail.com>"]
 license = "MIT"
@@ -10,6 +10,7 @@ readme = "README.md"
 python = "^3.10"
 sqlalchemy = "^2.0.29"
 toolfuse = "^0.1.22"
+playwright = {version = "^1.43.0", extras = ["browser"]}
 
 [build-system]
 requires = ["poetry-core"]
