@@ -34,6 +34,7 @@ pip install devicebay
 - Desktops via [AgentDesk](https://github.com/agentsea/agentdesk)
 - Filesystems via [FileSystem](./devicebay/devices/filesystem.py)
 - Browsers via [Playwright](./devicebay/devices/browser.py)
+- Repositories via [Github](./devicebay/devices/gh.py)
 
 ## Backends
 

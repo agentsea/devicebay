@@ -1,10 +1,9 @@
-from typing import Optional, Type, List
+from typing import Optional, Type
 
 from pydantic import BaseModel
+from playwright.sync_api import sync_playwright, Browser, Page
 
 from devicebay import Device, action, observation, ReactComponent
-
-from playwright.sync_api import sync_playwright, Browser, Page
 
 
 class PlaywrightConnectConfig(BaseModel):

@@ -16,12 +16,13 @@ class V1Lock(BaseModel):
 
 class V1Device(BaseModel, Generic[ConnectConfigType]):
     name: str
-    config: ConnectConfigType
+    type: str
+    config: Optional[ConnectConfigType] = None
 
 
 class V1DeviceType(BaseModel, Generic[ProvisionConfigType]):
     name: str
-    config: ProvisionConfigType
+    config: Optional[ProvisionConfigType] = None
 
 
 class V1EnvVarOpt(BaseModel):
