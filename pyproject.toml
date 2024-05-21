@@ -9,9 +9,9 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 sqlalchemy = "^2.0.29"
-toolfuse = "^0.1.22"
 playwright = {version = "^1.43.0", extras = ["browser"]}
 pygithub = {version = "^2.3.0", extras = ["github"]}
+toolfuse = "^0.1.24"
 
 [build-system]
 requires = ["poetry-core"]

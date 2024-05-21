@@ -41,6 +41,10 @@ class Device(Generic[C, D, P], Tool, ABC):
         """Disconnect from the device"""
         pass
 
+    def name(self) -> Optional[str]:
+        """Name of the device"""
+        pass
+
     @classmethod
     @abstractmethod
     def ensure(cls, name: str, config: P) -> D:
@@ -160,7 +164,7 @@ class Device(Generic[C, D, P], Tool, ABC):
                 f"Expected config instance of type {config_type.__name__}, but got {type(config_instance).__name__}"
             )
         parametrized_device_model = V1Device[config_type](
-            name=self.name(), config=config_instance
+            name=self.name(), type=self.type(), config=config_instance
         )
         return parametrized_device_model
 

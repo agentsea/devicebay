@@ -1,7 +1,6 @@
 from typing import Optional, Dict, List, TypeVar, Generic
 from pydantic import BaseModel
 
-# Define a type variable that can be any subclass of BaseModel
 ConnectConfigType = TypeVar("ConnectConfigType")
 ProvisionConfigType = TypeVar("ProvisionConfigType")
 
@@ -15,8 +14,8 @@ class V1Lock(BaseModel):
 
 
 class V1Device(BaseModel, Generic[ConnectConfigType]):
-    name: str
     type: str
+    name: Optional[str] = None
     config: Optional[ConnectConfigType] = None
 
 

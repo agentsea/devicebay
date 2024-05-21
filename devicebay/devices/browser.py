@@ -24,7 +24,10 @@ class Playwright(
 ):
     """A Playwright device"""
 
-    def __init__(self, config: PlaywrightConnectConfig) -> None:
+    def __init__(
+        self,
+        config: PlaywrightConnectConfig,
+    ) -> None:
         super().__init__()
         self._config = config
         self._playwright = sync_playwright().start()

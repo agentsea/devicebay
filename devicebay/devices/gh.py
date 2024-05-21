@@ -19,7 +19,7 @@ class GitHubConnectConfig(BaseModel):
 class GitHubProvisionConfig(BaseModel):
     """Provision configuration for GitHub"""
 
-    pass
+    repo: str
 
 
 class GitHub(Device[GitHubConnectConfig, "GitHub", GitHubProvisionConfig]):
