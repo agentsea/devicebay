@@ -9,7 +9,7 @@
   <p align="center">
     Devices for AI agents
     <br />
-    <a href="https://github.com/agentsea/devicebay"><strong>Explore the docs »</strong></a>
+    <a href="https://docs.hub.agentsea.ai/introduction"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/agentsea/devicebay">View Demo</a>
