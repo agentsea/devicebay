@@ -52,3 +52,7 @@ DB_HOST=localhost
 DB_USER=postgres
 DB_PASS=abc123
 ```
+
+## Community
+
+Come join us on [Discord](https://discord.gg/hhaq7XYPS6).
