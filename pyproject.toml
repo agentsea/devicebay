@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "devicebay"
-version = "0.1.26"
+version = "0.1.27"
 description = "Devices for AI agents"
 authors = ["Patrick Barker <patrickbarkerco@gmail.com>"]
 license = "MIT"
@@ -9,8 +9,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 sqlalchemy = "^2.0.29"
-playwright = {version = "^1.43.0", extras = ["browser"]}
-pygithub = {version = "^2.3.0", extras = ["github"]}
+playwright = {version = "^1.43.0", extras = ["browser"], optional = true}
+pygithub = {version = "^2.3.0", extras = ["github"], optional = true}
 toolfuse = "^0.1.25"
 
 [build-system]
