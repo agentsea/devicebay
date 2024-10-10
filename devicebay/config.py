@@ -1,5 +1,5 @@
 """
-Configuration for threadmem
+Configuration for devicebay
 """
 
 import os
